@@ -24,7 +24,7 @@ with open("audio.mp3", "rb") as audio_file:
             text = transcription
             lines = text.split('\n')
             new_lines = [line.replace(')', '') for line in lines if not line.startswith('HTTP')]
-            new_text = "\n" + '\n'.join(new_lines).strip() + '\n'
+            new_text = '\n'.join(new_lines).strip() + '\n'
             with open("out.srt", "w") as f:
                 f.write(new_text)
     except openai.error.APIError as e:
